@@ -14,7 +14,7 @@ The interdependencies of the various parts of the workflow are documentend in [/
 * Additionally, keep the [/dependencies](./dependencies/dependencies.md) documentation for the relevant script up to date.
 
 ## Data
-Data structure is documented in the data repository. 
+Data structure is documented in the [data repository](https://github.com/COMHIS/estc-data-private). 
 
 ## TODO
 Main parts of the workflow that need updating.
