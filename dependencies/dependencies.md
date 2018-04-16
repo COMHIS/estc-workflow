@@ -13,7 +13,7 @@ Further documentation, such as field names and descriptions of the output data s
 ## Data processing scripts
 
 ### Publishers data processing script
-[Publishers -repository](https://github.com/COMHIS/estc-publishers)
+* _repository:_ [COMHIS/estc-publishers](https://github.com/COMHIS/estc-publishers)
 * _input csv:_ this_is_not_the_real_path/estc_processed.csv
 * _field names:_ Field1, Field2, Field3, ...
 * _output csv:_ [TBD/estc_processed.csv](https://github.com/COMHIS/estc-data-private/publishers)
