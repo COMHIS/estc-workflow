@@ -1,0 +1,55 @@
+@startuml
+' the image is built with https://github.com/jvantuyl/sublime_diagram_plugin
+' sublimeText -plugin
+' below code is PlantUML -standard (http://plantuml.com/)
+' alt-m to build
+
+class MARC_XML << (D,yellow) >> {
+    .. dataType ..
+    + XML
+}
+class ESTC_data_raw << (D,yellow) >> {
+    .. dataType ..
+    + csv
+}
+class ESTC_data_unified << (D,yellow) >> {
+    .. dataType ..
+    + csv
+    .. IdFieldNames ..
+    + ESTCId
+}
+class publishers_csv << (D,yellow) >> {
+    .. dataType ..
+    + csv
+    .. IdFieldNames ..
+    + ESTCId
+    + actorId
+}
+class BBTI_data << (D,yellow) >> {
+    .. dataType ..
+    + website : http://bbti.bodleian.ox.ac.uk
+}
+
+
+class XML_parser << (C,violet) >> {
+    .. repository ..
+    COMHIS/MARCdata
+}
+class ESTC_master << (R,violet) >> {
+    .. repository ..
+    COMHIS/estc
+}
+class publishers_script << (R,violet) >>
+
+
+MARC_XML --> XML_parser
+XML_parser --> ESTC_data_raw
+ESTC_data_raw --> ESTC_master
+ESTC_master --> ESTC_data_unified
+ESTC_data_unified --> publishers_script
+BBTI_data --> publishers_script
+publishers_script --> publishers_csv
+
+hide empty members
+' hide circle
+@enduml
