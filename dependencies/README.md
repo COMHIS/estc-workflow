@@ -24,7 +24,7 @@ Further documentation, such as field names and descriptions of the output data s
 What should be here?
 
 ## <a name="workflow-image"></a> Overall workflow
-The UML chart is produced from PlantUML -standard file (dependencies.uml)[./dependencies.uml]. See [PlantUML](http://plantuml.com/) for details of the file format. The png image was done with a SublimeText UML -[plugin](https://github.com/jvantuyl/sublime_diagram_plugin).
+The UML chart is produced from PlantUML -standard file [dependencies.uml](./dependencies.uml). See [PlantUML](http://plantuml.com/) for details of the file format. The png image was done with a SublimeText UML -[plugin](https://github.com/jvantuyl/sublime_diagram_plugin).
 
 ![ESTC master workflow](./dependencies.png)
 ```
