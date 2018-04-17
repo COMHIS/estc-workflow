@@ -1,5 +1,5 @@
 # Dependencies
-UML chart of the overall workflow can be found [further down this document](#workflow-image).
+UML chart of the overall workflow can be found [further down this document](#overall-workflow).
 
 Dependencies for various data processing and analysis repositories can initially be collected here. If this file becomes too large, we can split it up by script. 
 A dependency entry consists of:
@@ -23,7 +23,7 @@ Further documentation, such as field names and descriptions of the output data s
 ### This is just a placehold for an analysis script name
 What should be here?
 
-## <a name="workflow-image"></a> Overall workflow
+## Overall workflow
 The UML chart is produced from PlantUML -standard file [dependencies.uml](./dependencies.uml). See [PlantUML](http://plantuml.com/) for details of the file format. The png image was done with a SublimeText UML -[plugin](https://github.com/jvantuyl/sublime_diagram_plugin).
 
 ![ESTC master workflow](./dependencies.png)
