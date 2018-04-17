@@ -6,7 +6,7 @@ There are **X** main repositories for the ESTC processing pipeline. The process 
 
 General analysis of that processed data is done in [ESTC-analysis-general](https://github.com/COMHIS/estc-analysis-general) -repository, and further dataset specific analysis scripts are collected in [/analysis](./analysis/analysis_scripts.md) -folder.
 
-## <a name="workflow"></a> Workflow
+## Workflow
 The interdependencies of the various parts of the workflow are documentend in [/dependencies](./dependencies) -folder. To run any isolated processing script, you need to:
 * Consult the [dependency chart](./dependencies/dependency_chart.png) and find out what inputdata the code depends on,
 * check if that data has changed and pull it from [csv-data](https://github.com/COMHIS/estc-data-private),
@@ -17,5 +17,5 @@ The interdependencies of the various parts of the workflow are documentend in [/
 Data structure is documented in the [data repository](https://github.com/COMHIS/estc-data-private). 
 
 ## TODO
-Main parts of the workflow that need updating.
+Major parts of the workflow that need updating.
 * MARC XML parser rewrite
