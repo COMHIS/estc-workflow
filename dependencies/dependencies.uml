@@ -67,12 +67,15 @@ class ESTC_overview_analysis << (A,lightgreen) >> {
 
 MARC_XML --> XML_parser
 XML_parser --> ESTC_data_raw
+
 ESTC_data_raw --> ESTC_master
 ESTC_master --> ESTC_data_cleaned_initial
 ESTC_data_cleaned_initial --> publishers_script
+
 BBTI_data --> publishers_script
 publishers_script --> publishers_csv
-ESTC_master --> ESTC_overview_analysis
+
+ESTC_data_cleaned_initial --> ESTC_overview_analysis
 
 
 hide empty members
