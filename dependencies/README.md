@@ -28,6 +28,8 @@ The UML chart is produced from PlantUML -standard file (dependencies.uml)[./depe
 
 ![ESTC master workflow](./dependencies.png)
 **Key:**
-```* P - data processing
-* D - data
-* A - analysis```
+```
+P - data processing
+D - data
+A - analysis
+```
