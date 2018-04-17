@@ -18,6 +18,11 @@ Further documentation, such as field names and descriptions of the output data s
 * _field names:_ Field1, Field2, Field3, ...
 * _output csv:_ [COMHIS/estc-data-private/estc-publishers](https://github.com/COMHIS/estc-data-private/tree/master/estc-publishers)
 
+### Authors (and other actors) data processing script
+* _repository:_ [COMHIS/XXXXX](https://github.com/COMHIS/XXXXX)
+* _input xml:_ this_is_not_the_real_path/estc.xml (https://github.com/COMHIS/estc-data-private/tree/master/XXXXXXXX)
+* _output csv:_ [COMHIS/estc-data-private/XXXXX](https://github.com/COMHIS/estc-data-private/tree/master/XXXXX)
+
 ## Data analysis scripts
 
 ### This is just a placehold for an analysis script name
