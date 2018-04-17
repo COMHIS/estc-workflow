@@ -33,21 +33,31 @@ class BBTI_data << (D,yellow) >> {
 }
 
 
-class XML_parser << (C,violet) >> {
+class XML_parser << (P,violet) >> {
     .. repository ..
-    COMHIS/MARCdata
+    + COMHIS/MARCdata
+    .. languages ..
+    + C++
 }
-class ESTC_master << (R,violet) >> {
+class ESTC_master << (P,violet) >> {
     .. repository ..
     COMHIS/estc
+    .. languages ..
+    + R
 }
-class publishers_script << (R,violet) >> {
+class publishers_script << (P,violet) >> {
     .. repository ..
     COMHIS/estc-publishers
+    .. languages ..
+    + R
+    + Python
+
 }
-class ESTC_overview_analysis << (R,violet) >> {
+class ESTC_overview_analysis << (A,lightgreen) >> {
     .. repository ..
     COMHIS/estc-overview-analysis
+    .. languages ..
+    + R
 }
 
 

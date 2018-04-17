@@ -27,3 +27,7 @@ What should be here?
 The UML chart is produced from PlantUML -standard file (dependencies.uml)[./dependencies.uml]. See [PlantUML](http://plantuml.com/) for details of the file format. The png image was done with a SublimeText UML -[plugin](https://github.com/jvantuyl/sublime_diagram_plugin).
 
 ![ESTC master workflow](./dependencies.png)
+**Key:**
+```* P - data processing
+* D - data
+* A - analysis```
