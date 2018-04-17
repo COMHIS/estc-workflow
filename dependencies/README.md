@@ -29,12 +29,18 @@ Further documentation, such as field names and descriptions of the output data s
 What should be here?
 
 ## Overall workflow
-The UML chart is produced from PlantUML -standard file [dependencies.uml](./dependencies.uml). See [PlantUML](http://plantuml.com/) for details of the file format. The png image was done with a SublimeText UML -[plugin](https://github.com/jvantuyl/sublime_diagram_plugin).
+The UML chart is produced from PlantUML -standard file [dependencies.uml](./dependencies.uml). See [PlantUML](http://plantuml.com/) for details of the file format. The image is built automatically via PlantUML.com server.[1](#note-1)
 
 <!-- ![ESTC master workflow](./dependencies.png) -->
-![PlantUML chart](http://www.plantuml.com/plantuml/svg/LOt1Yi8m503l_GhtiCTjaAAW83POeL9AGRkNNYGcJrEQljJanK2_VdjTcCiSXiaz2KTXDCbNZz841S6PbIQQ_9un9sBwwac7H_3Wf4K2f5JQaPsQkhpS67YIFz6wuMbiPAFm18ufc00LeEp1_vDq-Hp93e07NlEc-rpVQohlgWrprrLA5xkvqXLClzjsy1kHpMSU-NTMB2Gve5hoFm00)
+![PlantUML chart](http://www.plantuml.com/plantuml/svg/LSqn3i8m34RXdLF00OXtfaeiC206JX0SGoiIfx9_AzUdZ4nFt_GcHpP4gxl3eboZI5ZTpy3g9oBB8xqNpF4C5-Ek44NYtkXylrsk3n877qUtpwlsGIqxnAZ8Abf4UH7_G_fzferRlm00)
 ```
 A - analysis
 D - data
 P - data processing
 ```
+
+
+### Notes
+
+##### Note 1
+See ["How to integrate UML diagrams into GitLab or GitHub"](https://stackoverflow.com/questions/32203610/how-to-integrate-uml-diagrams-into-gitlab-or-github) on Stackoverflow for instructions on how to replicate this. 
