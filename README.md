@@ -8,7 +8,7 @@ General analysis of that processed data is done in [ESTC-analysis-general](https
 
 ## Workflow
 The interdependencies of the various parts of the workflow are documentend in [/dependencies](./dependencies) -folder. To run any isolated processing script, you need to:
-* Consult the [dependency chart](./dependencies/dependency_chart.png) and find out what inputdata the code depends on,
+* Consult the [dependency chart](./dependencies/dependencies.png) and find out what inputdata the code depends on,
 * check if that data has changed and pull it from [csv-data](https://github.com/COMHIS/estc-data-private),
 * and update the [csv-data](https://github.com/COMHIS/estc-data-private) repository with new output.
 * Additionally, keep the [/dependencies](./dependencies/dependencies.md) documentation for the relevant script up to date.
