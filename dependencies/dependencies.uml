@@ -7,6 +7,8 @@
 class MARC_XML << (D,yellow) >> {
     .. dataType ..
     + XML
+    .. dataSource ..
+    + British Library
 }
 class ESTC_data_raw << (D,yellow) >> {
     .. dataType ..
@@ -15,13 +17,15 @@ class ESTC_data_raw << (D,yellow) >> {
 class ESTC_data_cleaned_initial << (D,yellow) >> {
     .. dataType ..
     + csv
-    .. IdFieldNames ..
+    .. IdFields ..
     + estc_id
 }
 class publishers_csv << (D,yellow) >> {
+    .. repository ..
+    COMHIS/estc-data-private/estc-publishers
     .. dataType ..
     + csv
-    .. IdFieldNames ..
+    .. IdFields ..
     + estc_id
     + actor_id
 }
