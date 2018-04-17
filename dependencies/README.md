@@ -31,7 +31,8 @@ What should be here?
 ## Overall workflow
 The UML chart is produced from PlantUML -standard file [dependencies.uml](./dependencies.uml). See [PlantUML](http://plantuml.com/) for details of the file format. The png image was done with a SublimeText UML -[plugin](https://github.com/jvantuyl/sublime_diagram_plugin).
 
-![ESTC master workflow](./dependencies.png)
+<!-- ![ESTC master workflow](./dependencies.png) -->
+![PlantUML chart](http://www.plantuml.com/plantuml/svg/LOt1Yi8m503l_GhtiCTjaAAW83POeL9AGRkNNYGcJrEQljJanK2_VdjTcCiSXiaz2KTXDCbNZz841S6PbIQQ_9un9sBwwac7H_3Wf4K2f5JQaPsQkhpS67YIFz6wuMbiPAFm18ufc00LeEp1_vDq-Hp93e07NlEc-rpVQohlgWrprrLA5xkvqXLClzjsy1kHpMSU-NTMB2Gve5hoFm00)
 ```
 A - analysis
 D - data
