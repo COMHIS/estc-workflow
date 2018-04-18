@@ -30,9 +30,9 @@ Further documentation, such as field names and descriptions of the output data s
 What should be here?
 
 ## Overall workflow
-The UML chart is produced from PlantUML -standard file [dependencies.uml](./dependencies.uml). See [PlantUML](http://plantuml.com/) for details of the file format. The image is built automatically via PlantUML.com server (updates can take up to 10 minutes).<sup>[1](#note1)</sup>
+The UML chart is produced from PlantUML -standard file [dependencies.uml](./dependencies.uml). See [PlantUML](http://plantuml.com/) for details of the file format. The image is built automatically via PlantUML.com proxy server.<sup>[1](#note1)</sup>
 
-![PlantUML chart](http://www.plantuml.com/plantuml/svg/LSqn3i8m34RXdLF00OXtfaeiC206JX0SGoiIfx9_AzUdZ4nFt_GcHpP4gxl3eboZI5ZTpy3g9oBB8xqNpF4C5-Ek44NYtkXylrsk3n877qUtpwlsGIqxnAZ8Abf4UH7_G_fzferRlm00?no-cache)
+![PlantUML chart](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/COMHIS/estc-workflow/master/dependencies/dependencies.uml&fmt=svg)
 ```
 A - analysis
 D - data
@@ -41,4 +41,4 @@ P - data processing
 
 
 ### Notes
-<a name="note1">1</a>: See ["How to integrate UML diagrams into GitLab or GitHub"](https://stackoverflow.com/questions/32203610/how-to-integrate-uml-diagrams-into-gitlab-or-github) on Stackoverflow for instructions on how to replicate this. 
+<a name="note1">1</a> See ["How to integrate UML diagrams into GitLab or GitHub"](https://stackoverflow.com/questions/32203610/how-to-integrate-uml-diagrams-into-gitlab-or-github) on Stackoverflow for instructions on how to replicate this. Also see [this post](http://forum.plantuml.net/7163/githubs-aggressive-caching-prevent-diagrams-updated-markdown) on PlantUML forums on how to fix the caching issue.
