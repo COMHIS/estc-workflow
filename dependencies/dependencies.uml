@@ -6,6 +6,8 @@
 
 ' --- datasets ---
 class MARC_XML << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-private/estc-xml-raw
     .. dataType ..
     + XML
     .. dataSource ..
@@ -13,11 +15,15 @@ class MARC_XML << (D,yellow) >> {
 }
 
 class ESTC_data_raw << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-private/estc-csv-raw
     .. dataType ..
     + csv
 }
 
-class ESTC_data_cleaned_initial << (D,yellow) >> {
+class ESTC_cleaned_initial << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-private/estc-cleaned-initial
     .. dataType ..
     + csv
     .. IdFields ..
@@ -25,8 +31,8 @@ class ESTC_data_cleaned_initial << (D,yellow) >> {
 }
 
 class publishers_unified << (D,yellow) >> {
-    .. repository ..
-    COMHIS/estc-data-private/unify_publishers
+    .. location ..
+    COMHIS/estc-data-private/estc-publishers
     .. dataType ..
     + csv
     .. IdFields ..
@@ -35,10 +41,26 @@ class publishers_unified << (D,yellow) >> {
 }
 
 class BBTI_data << (D,yellow) >> {
+    .. location ..
+    http://bbti.bodleian.ox.ac.uk
     .. dataType ..
     + website
+}
+
+class VIAF_XML << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-private/xxxxxxx
+    .. dataType ..
+    + XML
     .. dataSource ..
-    + http://bbti.bodleian.ox.ac.uk
+    + viaf.org
+}
+
+class ESTC_actor_data_unified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-private/estc-viaf
+    .. dataType ..
+    + csv
 }
 
 '  --- data processing scripts ---
@@ -76,23 +98,11 @@ class ESTC_overview_analysis << (A,lightgreen) >> {
 
 
 ' Mark's boxes
-class VIAF_XML << (D,yellow) >> {
-    .. dataType ..
-    + XML
-    .. dataSource ..
-    + viaf.org
-}
-
 class unify_actors << (P,violet) >> {
     .. repository ..
     + COMHIS/estc-viaf
     .. languages ..
     + R
-}
-
-class ESTC_actor_data_unified << (D,yellow) >> {
-    .. dataType ..
-    + csv
 }
 
 ' Authors (and other actors)
@@ -104,15 +114,15 @@ MARC_XML --> XML_parser
 XML_parser --> ESTC_data_raw
 
 ESTC_data_raw --> ESTC_master
-ESTC_master --> ESTC_data_cleaned_initial
-ESTC_data_cleaned_initial --> unify_publishers
+ESTC_master --> ESTC_cleaned_initial
+ESTC_cleaned_initial --> unify_publishers
 
 ' Publishers
 BBTI_data --> unify_publishers
 unify_publishers --> publishers_unified
 
 ' Analysis
-ESTC_data_cleaned_initial --> ESTC_overview_analysis
+ESTC_cleaned_initial --> ESTC_overview_analysis
 
 
 hide empty members
