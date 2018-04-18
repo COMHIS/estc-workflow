@@ -1,21 +1,3 @@
-
-Conversation opened. 1 unread message.
-
-Skip to content
-Using Gmail with screen readers
- 
- 
-More 
-2 of 1,362
- 
-(no subject)
-Inbox
-    x
-Mark Hill <mark.john.hill@gmail.com>
-    
-15:49 (1 minute ago)
-    
-to me
 @startuml
 ' the image is built with https://github.com/jvantuyl/sublime_diagram_plugin
 ' sublimeText -plugin
@@ -93,7 +75,7 @@ class VIAF_XML << (D,yellow) >> {
 
 class VIAF_XML_parser << (P,violet) >> {
     .. repository ..
-    + COMHIS/xxxxx
+    + COMHIS/estc-viaf
     .. languages ..
     + R
 }
@@ -105,7 +87,7 @@ class VIAF_data_raw << (D,yellow) >> {
 
 class author_XML_parser << (P,violet) >> {
     .. repository ..
-    + COMHIS/xxxxx
+    + COMHIS/estc-viaf
     .. languages ..
     + R
 }
@@ -117,7 +99,7 @@ class ESTC_author_data_raw << (D,yellow) >> {
 
 class unify_actors_script << (P,violet) >> {
     .. repository ..
-    + COMHIS/xxxxx
+    + COMHIS/estc-viaf
     .. languages ..
     + R
 }
@@ -127,6 +109,14 @@ class ESTC_author_data_unified << (D,yellow) >> {
     + csv
 }
 
+class semiauto_clean_actors_script << (P,violet) >> {
+    .. repository ..
+    + COMHIS/estc-viaf
+    .. languages ..
+    + R
+}
+
+
 'Mark's flow
 VIAF_XML --> VIAF_XML_parser
 VIAF_XML_parser --> VIAF_data_raw
@@ -135,6 +125,9 @@ author_XML_parser --> ESTC_author_data_raw
 ESTC_author_data_raw --> unify_actors_script
 VIAF_data_raw --> unify_actors_script
 unify_actors_script --> ESTC_author_data_unified
+semiauto_clean_actors_script --> ESTC_author_data_unified
+
+
 
 
 MARC_XML --> XML_parser
