@@ -11,7 +11,7 @@ The interdependencies of the various parts of the workflow are documentend in [/
 * Consult the [dependency chart](./dependencies#overall-workflow) and find out what inputdata the code depends on,
 * check if that data has changed and pull it from [csv-data](https://github.com/COMHIS/estc-data-private),
 * and update the [csv-data](https://github.com/COMHIS/estc-data-private) repository with new output.
-* Additionally, keep the [/dependencies](./dependencies/dependencies.md) documentation for the relevant script up to date.
+* Additionally, keep the [/dependencies](./dependencies) documentation for the relevant script up to date.
 
 ## Data
 Data structure is documented in the [data repository](https://github.com/COMHIS/estc-data-private). 
