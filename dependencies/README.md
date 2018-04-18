@@ -30,9 +30,9 @@ Further documentation, such as field names and descriptions of the output data s
 What should be here?
 
 ## Overall workflow
-The UML chart is produced from PlantUML -standard file [dependencies.uml](./dependencies.uml). See [PlantUML](http://plantuml.com/) for details of the file format. The image is built automatically via PlantUML.com server.<sup>[1](#note1)</sup>
+The UML chart is produced from PlantUML -standard file [dependencies.uml](./dependencies.uml). See [PlantUML](http://plantuml.com/) for details of the file format. The image is built automatically via PlantUML.com server (updates can take up to 10 minutes).<sup>[1](#note1)</sup>
 
-![PlantUML chart](http://www.plantuml.com/plantuml/svg/LSqn3i8m34RXdLF00OXtfaeiC206JX0SGoiIfx9_AzUdZ4nFt_GcHpP4gxl3eboZI5ZTpy3g9oBB8xqNpF4C5-Ek44NYtkXylrsk3n877qUtpwlsGIqxnAZ8Abf4UH7_G_fzferRlm00)
+![PlantUML chart](http://www.plantuml.com/plantuml/svg/LSqn3i8m34RXdLF00OXtfaeiC206JX0SGoiIfx9_AzUdZ4nFt_GcHpP4gxl3eboZI5ZTpy3g9oBB8xqNpF4C5-Ek44NYtkXylrsk3n877qUtpwlsGIqxnAZ8Abf4UH7_G_fzferRlm00?max-age=600)
 ```
 A - analysis
 D - data
