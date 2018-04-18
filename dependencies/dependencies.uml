@@ -4,31 +4,36 @@
 ' below code is PlantUML -standard (http://plantuml.com/)
 ' alt-m to build
 
+' --- datasets ---
 class MARC_XML << (D,yellow) >> {
     .. dataType ..
     + XML
     .. dataSource ..
     + British Library
 }
+
 class ESTC_data_raw << (D,yellow) >> {
     .. dataType ..
     + csv
 }
+
 class ESTC_data_cleaned_initial << (D,yellow) >> {
     .. dataType ..
     + csv
     .. IdFields ..
     + estc_id
 }
-class publishers_csv << (D,yellow) >> {
+
+class publishers_unified << (D,yellow) >> {
     .. repository ..
-    COMHIS/estc-data-private/estc-publishers
+    COMHIS/estc-data-private/unify_publishers
     .. dataType ..
     + csv
     .. IdFields ..
     + estc_id
     + actor_id
 }
+
 class BBTI_data << (D,yellow) >> {
     .. dataType ..
     + website
@@ -36,27 +41,32 @@ class BBTI_data << (D,yellow) >> {
     + http://bbti.bodleian.ox.ac.uk
 }
 
-
+'  --- data processing scripts ---
 class XML_parser << (P,violet) >> {
     .. repository ..
-    + COMHIS/MARCdata
+    COMHIS/MARCdata
     .. languages ..
     + C++
 }
+
 class ESTC_master << (P,violet) >> {
     .. repository ..
     COMHIS/estc
     .. languages ..
     + R
 }
-class publishers_script << (P,violet) >> {
+
+class unify_publishers << (P,violet) >> {
     .. repository ..
-    COMHIS/estc-publishers
+    COMHIS/unify_publishers
     .. languages ..
-    + R
-    + Python
+    + R 3.4.3
+    + Python 3.6.3
 
 }
+
+
+' --- analysis scripts ---
 class ESTC_overview_analysis << (A,lightgreen) >> {
     .. repository ..
     COMHIS/estc-overview-analysis
@@ -64,8 +74,8 @@ class ESTC_overview_analysis << (A,lightgreen) >> {
     + R
 }
 
-' Mark's boxes
 
+' Mark's boxes
 class VIAF_XML << (D,yellow) >> {
     .. dataType ..
     + XML
@@ -73,7 +83,7 @@ class VIAF_XML << (D,yellow) >> {
     + viaf.org
 }
 
-class unify_actors_scripts << (P,violet) >> {
+class unify_actors << (P,violet) >> {
     .. repository ..
     + COMHIS/estc-viaf
     .. languages ..
@@ -85,21 +95,23 @@ class ESTC_actor_data_unified << (D,yellow) >> {
     + csv
 }
 
-'Mark's flow
-VIAF_XML --> unify_actors_scripts
-unify_actors_script --> ESTC_actor_data_unified
-
+' Authors (and other actors)
+VIAF_XML --> unify_actors
+MARC_XML --> unify_actors
+unify_actors --> ESTC_actor_data_unified
 
 MARC_XML --> XML_parser
 XML_parser --> ESTC_data_raw
 
 ESTC_data_raw --> ESTC_master
 ESTC_master --> ESTC_data_cleaned_initial
-ESTC_data_cleaned_initial --> publishers_script
+ESTC_data_cleaned_initial --> unify_publishers
 
-BBTI_data --> publishers_script
-publishers_script --> publishers_csv
+' Publishers
+BBTI_data --> unify_publishers
+unify_publishers --> publishers_unified
 
+' Analysis
 ESTC_data_cleaned_initial --> ESTC_overview_analysis
 
 
