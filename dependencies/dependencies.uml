@@ -49,7 +49,7 @@ class BBTI_data << (D,yellow) >> {
 
 class VIAF_XML << (D,yellow) >> {
     .. location ..
-    COMHIS/estc-data-private/xxxxxxx
+    http://viaf.org/viaf/data/
     .. dataType ..
     + XML
     .. dataSource ..
