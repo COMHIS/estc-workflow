@@ -140,6 +140,7 @@ unify_publishers --> publishers_unified
 
 ' Physical dimension
 ESTC_data_raw --> physicaldimensions_unified
+physicaldimensions_unified --> ESTC_overview_analysis
 
 
 ' Analysis
