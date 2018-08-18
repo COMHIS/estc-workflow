@@ -19,6 +19,7 @@ class ESTC_data_raw << (D,yellow) >> {
     COMHIS/estc-data-private/estc-csv-raw
     .. dataType ..
     + csv
+    + rds    
 }
 
 class ESTC_cleaned_initial << (D,yellow) >> {
@@ -39,6 +40,18 @@ class publishers_unified << (D,yellow) >> {
     + estc_id
     + actor_id
 }
+
+class physicaldimensions_unified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-private/estc-physicaldimension
+    .. dataType ..
+    + csv
+    + rds
+    .. languages ..
+    + R 3.5.1
+    
+}
+
 
 class BBTI_data << (D,yellow) >> {
     .. location ..
@@ -63,16 +76,7 @@ class ESTC_actor_data_unified << (D,yellow) >> {
     + csv
 }
 
-class ESTC_physicaldimension_data_unified << (D,yellow) >> {
-    .. location ..
-    COMHIS/estc-data-private/estc-physicaldimension
-    .. dataType ..
-    + csv
-    + rds
-    .. languages ..
-    + R 3.5.1
-    
-}
+
 
 '  --- data processing scripts ---
 class XML_parser << (P,violet) >> {
@@ -128,12 +132,14 @@ ESTC_data_raw --> ESTC_master
 ESTC_master --> ESTC_cleaned_initial
 ESTC_cleaned_initial --> unify_publishers
 
+
 ' Publishers
 BBTI_data --> unify_publishers
 unify_publishers --> publishers_unified
 
+
 ' Physical dimension
-ESTC_data_raw --> unify_physicaldimension
+ESTC_data_raw --> physicaldimensions_unified
 
 
 ' Analysis
