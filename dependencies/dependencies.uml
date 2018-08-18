@@ -140,12 +140,11 @@ unify_publishers --> publishers_unified
 
 ' Physical dimension
 ESTC_data_raw --> physicaldimensions_unified
-physicaldimensions_unified --> ESTC_overview_analysis
 
 
 ' Analysis
 ESTC_cleaned_initial --> ESTC_overview_analysis
-
+physicaldimensions_unified --> ESTC_overview_analysis
 
 hide empty members
 ' hide circle
