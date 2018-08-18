@@ -24,10 +24,17 @@ Further documentation, such as field names and descriptions of the output data s
 * _input xml:_ viaf-XXXXX-clusters.xml (http://viaf.org/viaf/data/)
 * _output csv:_ [COMHIS/estc-data-private/XXXXX](https://github.com/COMHIS/estc-data-private/tree/master/estc-viaf)
 
+### Document dimension data processing script
+* _repository:_ [COMHIS/estc-physical-dimension](https://github.com/COMHIS/estc-physical-dimension)
+* _input xml:_ Aalto/estc/originals/MARC/estc.xml (estc.xml)
+* _output csv:_ [COMHIS/estc-data-private/estc-physicaldimension](https://github.com/COMHIS/estc-data-private/tree/master/estc-physicaldimension)
+
+
 ## Data analysis scripts
 
 ### This is just a placehold for an analysis script name
-What should be here?
+
+TBA
 
 ## Overall workflow
 The UML chart is produced from PlantUML -standard file [dependencies.uml](./dependencies.uml). See [PlantUML](http://plantuml.com/) for details of the file format. The image is built automatically via PlantUML.com proxy server.<sup>[1](#note1)</sup>

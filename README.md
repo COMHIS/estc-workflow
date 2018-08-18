@@ -2,8 +2,17 @@
 Documentation for linkages and dependencies in different parts of ESTC processing [workflow](#workflow).
 
 ## Overview
-There are multiple interdependant repositories that together form the ESTC processing pipeline. The process starts with [MARC XML data parsing](https://github.com/COMHIS/MARCdata). The XML data is parsed into a master-csv file, that is then further processed in the data processing repositories, that are interdependent to a varying degree. The data unification code in those repositories both input from and output to the private [aggregate csv data repository](https://github.com/COMHIS/estc-data-private). This explained in more detail in the [/dependencies](./dependencies) -section.
 
+### Raw MARC data parsing 
+There are multiple interdependant repositories that together form the ESTC processing pipeline. The process starts with [MARC XML data parsing](https://github.com/COMHIS/MARCdata). The XML data is parsed into a master-csv file, that is then further processed in the data processing repositories, that are interdependent to a varying degree.
+
+### Field preparation and harmonization
+The data unification code in those repositories both input from and output to the private [aggregate csv data repository](https://github.com/COMHIS/estc-data-private). This explained in more detail in the [/dependencies](./dependencies) -section.
+
+### Summaries
+Standard summary document and tables are generated automatically for each processed field, available in the respective processing folders.
+
+### Analysis
 General analysis of that processed data is done in [ESTC-analysis-general](https://github.com/COMHIS/estc-analysis-general) -repository, and links to further dataset specific analysis scripts are collected in [/dependencies](./dependencies) -folder.
 
 ## Workflow
