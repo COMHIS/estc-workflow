@@ -19,15 +19,17 @@ For more detailed instructions, see further down this document. The below buille
 5. Also commit the final output data to the https://github.com/COMHIS/estc-data-private -repository and make sure it is documented there as well. https://github.com/COMHIS/estc-data-private/tree/master/estc-publishers can act as an example.
 6. Have someone read the readme and see if it is understandable.
 
-### Data repository guidelines
+### Data repository
 
-Refer [here](./data-instructions.md) for more detailed guidelines on using (both adding data and accessing and referring to it) the data repository.
+Refer [here](./data-instructions.md) for more detailed guidelines on using (both adding data and accessing and referring to it) the [data repository](https://github.com/COMHIS/estc-data-private).
 
 ## Data processing scripts
 
 There are multiple and occasionally interdependant scripts that produce the processed field data. These scripts and their repositories are listed [here](data-processing-scripts.md).
 
 Each data processing repository should have a readme laying out the logic of the script(s) and specifying the scripts and datasets that that script depends on.
+
+Outputs from these scripts should be collected in the **data repository** referred to above.
 
 ## Data analysis scripts
 
@@ -36,9 +38,10 @@ The various data analysis scripts should be collected [here](./data-analysis-scr
 When creating data analysis scripts, **make sure to take as a starting point a release version of the data** from the data repository.
 
 ## Script and data interdependency
+
 The interdependencies of the various parts of the workflow are documentend in [/dependencies](./dependencies).
 
 ## TODO
 Major parts of the workflow that need updating:
 * MARC XML parser rewrite
-* Separate data processing and analysis -scripts
+* Separate data processing and analysis -scripts in the original csv processing script.

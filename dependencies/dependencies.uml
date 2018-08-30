@@ -19,6 +19,7 @@ class ESTC_data_raw << (D,yellow) >> {
     COMHIS/estc-data-private/estc-csv-raw
     .. dataType ..
     + csv
+    + rds    
 }
 
 class ESTC_cleaned_initial << (D,yellow) >> {
@@ -40,6 +41,18 @@ class publishers_unified << (D,yellow) >> {
     + actor_id
 }
 
+class physicaldimensions_unified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-private/estc-physicaldimension
+    .. dataType ..
+    + csv
+    + rds
+    .. languages ..
+    + R 3.5.1
+    
+}
+
+
 class BBTI_data << (D,yellow) >> {
     .. location ..
     http://bbti.bodleian.ox.ac.uk
@@ -49,7 +62,7 @@ class BBTI_data << (D,yellow) >> {
 
 class VIAF_XML << (D,yellow) >> {
     .. location ..
-    COMHIS/estc-data-private/xxxxxxx
+    http://viaf.org/viaf/data/
     .. dataType ..
     + XML
     .. dataSource ..
@@ -62,6 +75,8 @@ class ESTC_actor_data_unified << (D,yellow) >> {
     .. dataType ..
     + csv
 }
+
+
 
 '  --- data processing scripts ---
 class XML_parser << (P,violet) >> {
@@ -117,13 +132,19 @@ ESTC_data_raw --> ESTC_master
 ESTC_master --> ESTC_cleaned_initial
 ESTC_cleaned_initial --> unify_publishers
 
+
 ' Publishers
 BBTI_data --> unify_publishers
 unify_publishers --> publishers_unified
 
+
+' Physical dimension
+ESTC_data_raw --> physicaldimensions_unified
+
+
 ' Analysis
 ESTC_cleaned_initial --> ESTC_overview_analysis
-
+physicaldimensions_unified --> ESTC_overview_analysis
 
 hide empty members
 ' hide circle
