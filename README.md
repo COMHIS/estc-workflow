@@ -19,7 +19,7 @@ For more detailed instructions, see further down this document. The below buille
 5. Also commit the final output data to the https://github.com/COMHIS/estc-data-private -repository and make sure it is documented there as well. https://github.com/COMHIS/estc-data-private/tree/master/estc-publishers can act as an example.
 6. Have someone read the readme and see if it is understandable.
 
-### Data repository
+## Data repository
 
 Refer [here](./data-instructions.md) for more detailed guidelines on using (both adding data and accessing and referring to it) the [data repository](https://github.com/COMHIS/estc-data-private).
 
