@@ -19,3 +19,8 @@ The main data repository is located at [github/COMHIS/estc-data-private](https:/
 * References to datasets used in further refining of other datasets, or analysis **should always be to release versions**, not to the master branch. Eg. publisher data in the v0.1.1 release can be found here: https://github.com/COMHIS/estc-data-private/tree/v0.1.1/estc-publishers 
 * On each commit, do use useful and informative commit messages.
 * Data documentation should be kept up to date, with a dataset specific README.md -file in each data directory.
+
+## Very (/somewhat) large files
+
+* GitHub only accepts individual files of 100MB or less.
+* If after zipping the datafiles are still alrger than 100MB, use Aalto gitlab instead ([version.aalto.fi/comhis/estc](https://version.aalto.fi/gitlab/comhis/estc) for ESTC data) and add a link to that dataset in the GitHub repository.
