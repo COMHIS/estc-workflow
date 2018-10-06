@@ -29,8 +29,7 @@ Further documentation, such as field names and descriptions of the output data s
 
 ### Document dimension data processing script
 * _repository:_ [COMHIS/estc-physical-dimension](https://github.com/COMHIS/estc-physical-dimension)
-* _input xml:_ Aalto/estc/originals/MARC/estc.xml (estc.xml)
-* _input csv:_ estc-data-private/estc_parsed.csv (estc_processed.csv)
+* _input csv:_ [COMHIS/estc-data-private/estc-csv-raw] (estc_parsed.csv)
 * _output csv:_ [COMHIS/estc-data-private/estc-physicaldimension](https://github.com/COMHIS/estc-data-private/tree/master/estc-physicaldimension)
 
 
