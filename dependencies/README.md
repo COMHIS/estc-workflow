@@ -1,7 +1,7 @@
 # Dependencies
-<<<<<<< HEAD
+
 An abtracted UML chart of the overall ESTC cleaning and analysis workflow.
-=======
+
 UML chart of the overall workflow can be found [further down this document](#overall-workflow).
 
 Dependencies for various data processing and analysis repositories can initially be collected here. If this file becomes too large, we can split it up by script. 
@@ -30,6 +30,7 @@ Further documentation, such as field names and descriptions of the output data s
 ### Document dimension data processing script
 * _repository:_ [COMHIS/estc-physical-dimension](https://github.com/COMHIS/estc-physical-dimension)
 * _input xml:_ Aalto/estc/originals/MARC/estc.xml (estc.xml)
+* _input csv:_ estc-data-private/estc_parsed.csv (estc_processed.csv)
 * _output csv:_ [COMHIS/estc-data-private/estc-physicaldimension](https://github.com/COMHIS/estc-data-private/tree/master/estc-physicaldimension)
 
 
@@ -38,7 +39,7 @@ Further documentation, such as field names and descriptions of the output data s
 ### This is just a placehold for an analysis script name
 
 TBA
->>>>>>> 1dc9d16e0040326bcc7f2ab0111728dc667279bb
+
 
 ## Overall workflow
 The UML chart is produced from PlantUML -standard file [dependencies.uml](./dependencies.uml). See [PlantUML](http://plantuml.com/) for details of the file format. The image is built automatically via PlantUML.com proxy server.<sup>[1](#note1)</sup>
