@@ -162,8 +162,8 @@ XML_parser --> ESTC_data_raw
 ESTC_data_raw --> ESTC_master
 ESTC_master --> ESTC_cleaned_initial
 ESTC_cleaned_initial --> unify_publishers
-ESTC_cleaned_initial --> unify_physicaldimension
-ESTC_cleaned_initial --> unify_physical_extent
+ESTC_data_raw --> unify_physicaldimension
+ESTC_data_raw --> unify_physical_extent
 
 
 ' Publishers
