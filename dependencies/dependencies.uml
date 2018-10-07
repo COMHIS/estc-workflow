@@ -162,9 +162,6 @@ XML_parser --> ESTC_data_raw
 ESTC_data_raw --> ESTC_master
 ESTC_master --> ESTC_cleaned_initial
 ESTC_cleaned_initial --> unify_publishers
-ESTC_data_raw --> unify_physicaldimension
-ESTC_data_raw --> unify_physical_extent
-
 
 ' Publishers
 BBTI_data --> unify_publishers
@@ -172,9 +169,11 @@ unify_publishers --> publishers_unified
 
 
 ' Physical dimension
+ESTC_data_raw --> unify_physicaldimension
 unify_physicaldimension --> physicaldimensions_unified
 
 ' Physical extent
+ESTC_data_raw --> unify_physical_extent
 ECCO_data_raw --> physicalextent_unified
 unify_physical_extent --> physicalextent_unified
 
