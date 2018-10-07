@@ -162,6 +162,8 @@ XML_parser --> ESTC_data_raw
 ESTC_data_raw --> ESTC_master
 ESTC_master --> ESTC_cleaned_initial
 ESTC_cleaned_initial --> unify_publishers
+ESTC_cleaned_initial --> unify_physicaldimension
+ESTC_cleaned_initial --> unify_physical_extent
 
 
 ' Publishers
@@ -170,17 +172,17 @@ unify_publishers --> publishers_unified
 
 
 ' Physical dimension
-ESTC_data_raw --> physicaldimensions_unified
+unify_physicaldimension --> physicaldimensions_unified
 
 ' Physical extent
-ESTC_data_raw --> physicalextent_unified
 ECCO_data_raw --> physicalextent_unified
-physicaldimensions_unified --> physicalextent_unified
+unify_physical_extent --> physicalextent_unified
 
 
 ' Analysis
 ESTC_cleaned_initial --> ESTC_overview_analysis
 physicaldimensions_unified --> ESTC_overview_analysis
+physicalextent_unified --> ESTC_overview_analysis
 
 hide empty members
 ' hide circle

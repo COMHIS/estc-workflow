@@ -28,8 +28,8 @@ Further documentation, such as field names and descriptions of the output data s
 * _output csv:_ [COMHIS/estc-data-private/XXXXX](https://github.com/COMHIS/estc-data-private/tree/master/estc-viaf)
 
 ### Document dimension data processing script
-* _repository:_ [COMHIS/estc-physical-dimension](https://github.com/COMHIS/estc-physical-dimension)
-* _input csv:_ [COMHIS/estc-data-private/estc-csv-raw] (estc_parsed.csv)
+* _repository:_ [COMHIS/estc-physical-dimension](https://github.com/COMHIS/estc-physicaldimension)
+* _input csv:_ [COMHIS/estc-data-private/estc-csv-raw](https://github.com/COMHIS/estc-data-private/estc-csv-raw) (estc_parsed.csv)
 * _output csv:_ [COMHIS/estc-data-private/estc-physicaldimension](https://github.com/COMHIS/estc-data-private/tree/master/estc-physicaldimension)
 
 
