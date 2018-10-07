@@ -52,6 +52,24 @@ class physicaldimensions_unified << (D,yellow) >> {
     
 }
 
+class physical_extent_unified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-private/estc-physical-extent
+    .. dataType ..
+    + csv
+    + rds
+    .. languages ..
+    + R 3.5.1
+    
+}
+
+class ESTC_actor_data_unified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-private/estc-viaf
+    .. dataType ..
+    + csv
+}
+
 
 class BBTI_data << (D,yellow) >> {
     .. location ..
@@ -69,14 +87,12 @@ class VIAF_XML << (D,yellow) >> {
     + viaf.org
 }
 
-class ESTC_actor_data_unified << (D,yellow) >> {
+class ECCO_data_raw << (D,yellow) >> {
     .. location ..
-    COMHIS/estc-data-private/estc-viaf
+    COMHIS/ecco-data-private/originals
     .. dataType ..
-    + csv
+    + json
 }
-
-
 
 '  --- data processing scripts ---
 class XML_parser << (P,violet) >> {
@@ -100,6 +116,21 @@ class unify_publishers << (P,violet) >> {
     + R 3.4.3
     + Python 3.6.3
 
+}
+
+
+class unify_physicaldimension << (P,violet) >> {
+    .. repository ..
+    COMHIS/estc-physicaldimension
+    .. languages ..
+    + R 3.5.1
+}
+
+class unify_physicalextent << (P,violet) >> {
+    .. repository ..
+    COMHIS/estc-physical-extent
+    .. languages ..
+    + R 3.5.1
 }
 
 
@@ -140,6 +171,11 @@ unify_publishers --> publishers_unified
 
 ' Physical dimension
 ESTC_data_raw --> physicaldimensions_unified
+
+' Physical extent
+ESTC_data_raw --> physicalextent_unified
+ECCO_data_raw --> physicalextent_unified
+physicaldimensions_unified --> physicalextent_unified
 
 
 ' Analysis
