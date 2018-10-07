@@ -173,9 +173,9 @@ ESTC_data_raw --> unify_physicaldimension
 unify_physicaldimension --> physicaldimensions_unified
 
 ' Physical extent
-ESTC_data_raw --> unify_physical_extent
-ECCO_data_raw --> physicalextent_unified
-unify_physical_extent --> physicalextent_unified
+ESTC_data_raw --> unify_physicalextent
+ECCO_data_raw --> physical_extent_unified
+unify_physicalextent --> physical_extent_unified
 
 
 ' Analysis
