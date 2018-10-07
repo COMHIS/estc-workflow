@@ -181,7 +181,7 @@ unify_physicalextent --> physical_extent_unified
 ' Analysis
 ESTC_cleaned_initial --> ESTC_overview_analysis
 physicaldimensions_unified --> ESTC_overview_analysis
-physicalextent_unified --> ESTC_overview_analysis
+physical_extent_unified --> ESTC_overview_analysis
 
 hide empty members
 ' hide circle
