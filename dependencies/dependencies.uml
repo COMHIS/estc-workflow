@@ -195,7 +195,7 @@ unify_language --> language_unified
 
 ' Physical extent
 ESTC_data_raw --> unify_physicalextent
-ECCO_data_raw --> physical_extent_unified
+ECCO_data_raw --> unify_physicalextent
 unify_physicalextent --> physical_extent_unified
 
 ' Analysis
@@ -204,6 +204,7 @@ physicaldimensions_unified --> ESTC_overview_analysis
 physical_extent_unified --> ESTC_overview_analysis
 language_unified --> ESTC_overview_analysis
 ESTC_actor_data_unified --> ESTC_overview_analysis
+
 
 hide empty members
 ' hide circle
