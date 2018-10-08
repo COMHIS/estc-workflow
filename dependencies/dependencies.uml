@@ -59,8 +59,7 @@ class language_unified << (D,yellow) >> {
     + csv
     + rds
     .. languages ..
-    + R 3.5.1
-    
+    + R 3.5.1    
 }
 
 class physical_extent_unified << (D,yellow) >> {
@@ -186,12 +185,11 @@ ESTC_cleaned_initial --> unify_publishers
 BBTI_data --> unify_publishers
 unify_publishers --> publishers_unified
 
-
 ' Physical dimension
 ESTC_data_raw --> unify_physicaldimension
 unify_physicaldimension --> physicaldimensions_unified
 
-' Physical dimension
+' Language
 ESTC_data_raw --> unify_language
 unify_language --> language_unified
 
@@ -200,11 +198,11 @@ ESTC_data_raw --> unify_physicalextent
 ECCO_data_raw --> physical_extent_unified
 unify_physicalextent --> physical_extent_unified
 
-
 ' Analysis
 ESTC_cleaned_initial --> ESTC_overview_analysis
 physicaldimensions_unified --> ESTC_overview_analysis
 physical_extent_unified --> ESTC_overview_analysis
+language_unified --> ESTC_overview_analysis
 
 hide empty members
 ' hide circle
