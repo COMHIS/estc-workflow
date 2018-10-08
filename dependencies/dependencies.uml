@@ -52,6 +52,17 @@ class physicaldimensions_unified << (D,yellow) >> {
     
 }
 
+class language_unified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-private/estc-language
+    .. dataType ..
+    + csv
+    + rds
+    .. languages ..
+    + R 3.5.1
+    
+}
+
 class physical_extent_unified << (D,yellow) >> {
     .. location ..
     COMHIS/estc-data-private/estc-physical-extent
@@ -134,6 +145,14 @@ class unify_physicalextent << (P,violet) >> {
 }
 
 
+class unify_langugage << (P,violet) >> {
+    .. repository ..
+    COMHIS/estc-language
+    .. languages ..
+    + R 3.5.1
+}
+
+
 ' --- analysis scripts ---
 class ESTC_overview_analysis << (A,lightgreen) >> {
     .. repository ..
@@ -171,6 +190,10 @@ unify_publishers --> publishers_unified
 ' Physical dimension
 ESTC_data_raw --> unify_physicaldimension
 unify_physicaldimension --> physicaldimensions_unified
+
+' Physical dimension
+ESTC_data_raw --> unify_language
+unify_language --> language_unified
 
 ' Physical extent
 ESTC_data_raw --> unify_physicalextent
