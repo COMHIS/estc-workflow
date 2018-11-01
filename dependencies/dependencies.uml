@@ -52,6 +52,34 @@ class physicaldimensions_unified << (D,yellow) >> {
     
 }
 
+class language_unified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-private/estc-language
+    .. dataType ..
+    + csv
+    + rds
+    .. languages ..
+    + R 3.5.1    
+}
+
+class physical_extent_unified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-private/estc-physical-extent
+    .. dataType ..
+    + csv
+    + rds
+    .. languages ..
+    + R 3.5.1
+    
+}
+
+class ESTC_actor_data_unified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-private/estc-viaf
+    .. dataType ..
+    + csv
+}
+
 
 class BBTI_data << (D,yellow) >> {
     .. location ..
@@ -69,14 +97,12 @@ class VIAF_XML << (D,yellow) >> {
     + viaf.org
 }
 
-class ESTC_actor_data_unified << (D,yellow) >> {
+class ECCO_data_raw << (D,yellow) >> {
     .. location ..
-    COMHIS/estc-data-private/estc-viaf
+    COMHIS/ecco-data-private/originals
     .. dataType ..
-    + csv
+    + json
 }
-
-
 
 '  --- data processing scripts ---
 class XML_parser << (P,violet) >> {
@@ -100,6 +126,29 @@ class unify_publishers << (P,violet) >> {
     + R 3.4.3
     + Python 3.6.3
 
+}
+
+
+class unify_physicaldimension << (P,violet) >> {
+    .. repository ..
+    COMHIS/estc-physicaldimension
+    .. languages ..
+    + R 3.5.1
+}
+
+class unify_physicalextent << (P,violet) >> {
+    .. repository ..
+    COMHIS/estc-physical-extent
+    .. languages ..
+    + R 3.5.1
+}
+
+
+class unify_langugage << (P,violet) >> {
+    .. repository ..
+    COMHIS/estc-language
+    .. languages ..
+    + R 3.5.1
 }
 
 
@@ -132,19 +181,30 @@ ESTC_data_raw --> ESTC_master
 ESTC_master --> ESTC_cleaned_initial
 ESTC_cleaned_initial --> unify_publishers
 
-
 ' Publishers
 BBTI_data --> unify_publishers
 unify_publishers --> publishers_unified
 
-
 ' Physical dimension
-ESTC_data_raw --> physicaldimensions_unified
+ESTC_data_raw --> unify_physicaldimension
+unify_physicaldimension --> physicaldimensions_unified
 
+' Language
+ESTC_data_raw --> unify_language
+unify_language --> language_unified
+
+' Physical extent
+ESTC_data_raw --> unify_physicalextent
+ECCO_data_raw --> unify_physicalextent
+unify_physicalextent --> physical_extent_unified
 
 ' Analysis
 ESTC_cleaned_initial --> ESTC_overview_analysis
 physicaldimensions_unified --> ESTC_overview_analysis
+physical_extent_unified --> ESTC_overview_analysis
+language_unified --> ESTC_overview_analysis
+ESTC_actor_data_unified --> ESTC_overview_analysis
+
 
 hide empty members
 ' hide circle
