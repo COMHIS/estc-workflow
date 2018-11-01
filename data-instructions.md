@@ -1,14 +1,47 @@
 # Data Repository structure and practices
 
-The main data repository is located at [github/COMHIS/estc-data-private](https://github.com/COMHIS/estc-data-private).
+The data is spread over multiple repositories, depending on it's state:
+
+1) The original data in unmodified XML format as received from the British Library (and converted to `.csv` with no data loss). ([COMHIS/estc-data-originals](https://github.com/COMHIS/estc-data-originals))
+2) Above data with erroneous and duplicated entries filtered out, but with no other modifications. This should be the starting point of all the cleanup and unification scripts. ([COMHIS/estc-data-verified](https://github.com/COMHIS/estc-data-verified))
+3) The "finished" object model resulting from the cleanup scripts. This is the starting point of all analysis scripts. No code here please, only data!
+4) Results of analysis scripts, be they simple summaries and statistical overviews or whatnot should be in their respective repositories.
+
+## Data Repositories
+
+Various data repositories in more detail, with links pointing to them.
+
+### Originals
+
+[COMHIS/estc-data-originals](https://github.com/COMHIS/estc-data-originals)
+
+Original data as received from the British Library. In XML format, and also as csv with no data loss from the XML. 
+
+### Legacy
+
+[COMHIS/estc-data-legacy](https://github.com/COMHIS/estc-data-legacy)
+
+Versions of data that should not be modified further. Kept for legacy compatibility.
+
+### Verified
+
+[COMHIS/estc-data-verified](https://github.com/COMHIS/estc-data-verified)
+
+Original ESTC data with erroneous and duplicated entries separated out. Starting point of clenup and unification scripts.
+
+### Unified
+
+[COMHIS/estc-data-unified](https://github.com/COMHIS/estc-data-unified)
+
+Unified and cleaned ESTC data. Starting point of analysis scripts.
 
 ## Structure
 
-* There is a README.md in the root of the repository, and it should be kept up to date with the dataset details.
-  * If you add a new dataset to the repository, make sure that the README.md has a link pointing to that dataset and brief description under it.
+* There is a README.md in the root of each repository, and it should be kept up to date with the dataset details.
+  * If you add a new dataset to a repository, make sure that the README.md has a link pointing to that dataset and brief description under it.
 * Each dataset should be in it’s own subdirectory within the repository.
-  * Publisher data, for example, is in https://github.com/COMHIS/estc-data-private/tree/master/estc-publishers 
-* The data itself should be in .csv format, compressed  if necessary (and ideally with bog-standard zip to make access easy).
+  * Publisher data, for example, is in https://github.com/COMHIS/estc-data-unfied/tree/master/estc-publishers 
+* The data itself should be in .csv format. If the data exceeds Github size limits, use Git LFS.
   * The data fields should only include ones that are unique to that dataset, and a field linking the dataset to the rest of the ESTC data (that reference field would typically be the ESTCid).
   * All datasets and their fields should be documented in directory -specific README.md -files. Look at existing datasets to get a template for this.
 
@@ -23,4 +56,4 @@ The main data repository is located at [github/COMHIS/estc-data-private](https:/
 ## Very (/somewhat) large files
 
 * GitHub only accepts individual files of 100MB or less.
-* If after zipping the datafiles are still alrger than 100MB, use Aalto gitlab instead ([version.aalto.fi/comhis/estc](https://version.aalto.fi/gitlab/comhis/estc) for ESTC data) and add a link to that dataset in the GitHub repository.
+* Data that exceeds Github's size limit is stored with Git LFS. To be able to clone that data LFS needs to be installed locally. Refer to [Git LFS tutorial](https://github.com/git-lfs/git-lfs/wiki/Tutorial) for further instructions.
