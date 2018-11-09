@@ -4,7 +4,7 @@ The data is spread over multiple repositories, depending on it's state:
 
 1) The original data in unmodified XML format as received from the British Library (and converted to `.csv` with no data loss). ([COMHIS/estc-data-originals](https://github.com/COMHIS/estc-data-originals))
 2) Above data with erroneous and duplicated entries filtered out, but with no other modifications. This should be the starting point of all the cleanup and unification scripts. ([COMHIS/estc-data-verified](https://github.com/COMHIS/estc-data-verified))
-3) The "finished" object model resulting from the cleanup scripts. This is the starting point of all analysis scripts. No code here please, only data!
+3) The "finished" object model resulting from the cleanup scripts. This is the starting point of all analysis scripts. No code here please, only data! ([COMHIS/estc-data-unified](https://github.com/COMHIS/estc-data-unified))
 4) Results of analysis scripts, be they simple summaries and statistical overviews or whatnot should be in their respective repositories.
 
 ## Data Repositories
