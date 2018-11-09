@@ -42,8 +42,3 @@ Datasets (summaries, network data, etc.) produced by the data analysis scripts s
 ## Script and data interdependency
 
 The interdependencies of the various parts of the workflow are documentend in [/dependencies](./dependencies).
-
-## TODO
-Major parts of the workflow that need updating:
-* MARC XML parser rewrite
-* Separate data processing and analysis -scripts in the original csv processing script.
