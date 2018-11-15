@@ -46,7 +46,17 @@ class physicaldimensions_unified << (D,yellow) >> {
     COMHIS/estc-data-unified/estc-physicaldimension
     .. dataType ..
     + csv
-    + rds
+    .. languages ..
+    + R 3.5.1
+    
+}
+
+class physicaldimensions_summaries << (A,green) >> {
+    .. location ..
+    COMHIS/estc-physicaldimension
+    .. dataType ..
+    + markdown
+    + csv    
     .. languages ..
     + R 3.5.1
     
@@ -187,6 +197,7 @@ unify_publishers --> publishers_unified
 
 ' Physical dimension
 ESTC_data_raw --> unify_physicaldimension
+unify_physicaldimension --> physicaldimensions_summaries
 unify_physicaldimension --> physicaldimensions_unified
 
 ' Language
