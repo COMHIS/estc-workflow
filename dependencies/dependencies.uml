@@ -62,6 +62,17 @@ class physicaldimensions_summaries << (A,green) >> {
     
 }
 
+class actor_summaries << (A,green) >> {
+    .. location ..
+    COMHIS/author_analysis
+    .. dataType ..
+    + markdown
+    + csv    
+    .. languages ..
+    + R 3.5.1
+    
+}
+
 class language_unified << (D,yellow) >> {
     .. location ..
     COMHIS/estc-data-unified/estc-language
@@ -183,6 +194,7 @@ class unify_actors << (P,violet) >> {
 VIAF_XML --> unify_actors
 MARC_XML --> unify_actors
 unify_actors --> ESTC_actor_data_unified
+ESTC_actor_data_unified --> actor_summaries
 
 MARC_XML --> XML_parser
 XML_parser --> ESTC_data_raw
