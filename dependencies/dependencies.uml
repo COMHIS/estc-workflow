@@ -19,7 +19,6 @@ class ESTC_data_raw << (D,yellow) >> {
     COMHIS/estc-data-verified/estc-csv-raw
     .. dataType ..
     + csv
-    + rds    
 }
 
 class ESTC_cleaned_initial << (D,yellow) >> {
@@ -152,7 +151,6 @@ class unify_publishers << (P,violet) >> {
     + Python 3.6.3
 
 }
-
 
 class unify_physicaldimension << (P,violet) >> {
     .. repository ..
