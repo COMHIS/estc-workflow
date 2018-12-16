@@ -169,7 +169,7 @@ class unify_physicalextent << (P,violet) >> {
 }
 
 
-class unify_langugage << (P,violet) >> {
+class unify_language << (P,violet) >> {
     .. repository ..
     COMHIS/estc-language
     .. languages ..
@@ -216,7 +216,7 @@ ESTC_data_raw --> unify_physicaldimension
 unify_physicaldimension --> physicaldimensions_summaries
 unify_physicaldimension --> physicaldimensions_unified
 
-' Physical dimension
+' Language
 ESTC_data_raw --> unify_language
 unify_language --> language_summaries
 unify_language --> language_unified
