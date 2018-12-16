@@ -51,6 +51,18 @@ class physicaldimensions_unified << (D,yellow) >> {
     
 }
 
+
+class language_unified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-unified/estc-language
+    .. dataType ..
+    + csv
+    .. languages ..
+    + R 3.5.1
+    
+}
+
+
 class physicaldimensions_summaries << (A,green) >> {
     .. location ..
     COMHIS/estc-physicaldimension
@@ -73,15 +85,7 @@ class actor_summaries << (A,green) >> {
     
 }
 
-class language_unified << (D,yellow) >> {
-    .. location ..
-    COMHIS/estc-data-unified/estc-language
-    .. dataType ..
-    + csv
-    + rds
-    .. languages ..
-    + R 3.5.1    
-}
+
 
 class physical_extent_unified << (D,yellow) >> {
     .. location ..
@@ -212,9 +216,11 @@ ESTC_data_raw --> unify_physicaldimension
 unify_physicaldimension --> physicaldimensions_summaries
 unify_physicaldimension --> physicaldimensions_unified
 
-' Language
+' Physical dimension
 ESTC_data_raw --> unify_language
+unify_language --> language_summaries
 unify_language --> language_unified
+
 
 ' Physical extent
 ESTC_data_raw --> unify_physicalextent
