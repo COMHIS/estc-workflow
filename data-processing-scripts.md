@@ -18,3 +18,6 @@ The process starts with parsing selected fields from the raw MARC XML to csv for
 
 ### Authors (and other actors) data processing script
 * _repository:_ [COMHIS/estc-viaf](https://github.com/COMHIS/estc-viaf)
+
+### Languages data processing script
+* _repository:_ [COMHIS/estc-language](https://github.com/COMHIS/estc-language)
