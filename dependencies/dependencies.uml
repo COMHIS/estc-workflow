@@ -192,11 +192,43 @@ class unify_actors << (P,violet) >> {
     + R
 }
 
+class author_analysis << (P,violet) >> {
+    .. repository ..
+    + COMHIS/author_analysis
+    .. languages ..
+    + R
+}
+
+class estc_author_analysis_data << (P,violet) >> {
+    .. repository ..
+    + COMHIS/estc_author_analysis_data
+    .. languages ..
+    + R
+}
+
+class ESTC_actors_enriched << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-author-analysis-data
+    .. dataType ..
+    + csv
+}
+
+class ESTC_actors_verified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-author-analysis-data
+    .. dataType ..
+    + csv
+}
+
 ' Authors (and other actors)
 VIAF_XML --> unify_actors
 MARC_XML --> unify_actors
 unify_actors --> ESTC_actor_data_unified
 ESTC_actor_data_unified --> actor_summaries
+ESTC_actor_data_unified --> author_analysis
+author_analysis --> ESTC_actors_enriched
+ESTC_actors_enriched --> estc_author_analysis_data
+estc_author_analysis_data --> ESTC_actors_verified
 
 MARC_XML --> XML_parser
 XML_parser --> ESTC_data_raw
