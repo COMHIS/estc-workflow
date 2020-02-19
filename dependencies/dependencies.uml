@@ -184,6 +184,9 @@ class unify_publishers << (P,violet) >> {
     + Python 3.6.3
     .. authors ..
     + Ville
+    .. MARC fields input ..
+    + 260b
+    + 260f
 }
 
 class unify_physicaldimension << (P,violet) >> {
