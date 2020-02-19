@@ -7,11 +7,29 @@
 ' --- datasets ---
 class MARC_XML << (D,yellow) >> {
     .. location ..
-    COMHIS/estc-data-verified/estc-xml-raw
+    COMHIS/estc-data-originals/estc-xml-raw
+    .. filename ..
+    originals_MARC_estc.xml
     .. dataType ..
     + XML
     .. dataSource ..
     + British Library
+}
+
+class ESTC_csv_raw << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-originals/estc-csv-raw/
+    .. dataType ..
+    + csv
+}
+
+class ESTC_csv_raw_filtered << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-verified/estc-csv-raw-filtered
+    .. filename ..
+    estc_raw_sane.csv
+    .. dataType ..
+    + csv
 }
 
 class ESTC_data_raw << (D,yellow) >> {
@@ -50,7 +68,6 @@ class physicaldimensions_unified << (D,yellow) >> {
     
 }
 
-
 class language_unified << (D,yellow) >> {
     .. location ..
     COMHIS/estc-data-unified/estc-language
@@ -60,7 +77,6 @@ class language_unified << (D,yellow) >> {
     + R 3.5.1
     
 }
-
 
 class physicaldimensions_summaries << (A,green) >> {
     .. location ..
@@ -84,8 +100,6 @@ class actor_summaries << (A,green) >> {
     
 }
 
-
-
 class physical_extent_unified << (D,yellow) >> {
     .. location ..
     COMHIS/estc-data-unified/estc-physical-extent
@@ -103,7 +117,6 @@ class ESTC_actor_data_unified << (D,yellow) >> {
     .. dataType ..
     + csv
 }
-
 
 class BBTI_data << (D,yellow) >> {
     .. location ..
@@ -134,6 +147,26 @@ class XML_parser << (P,violet) >> {
     COMHIS/MARCdata
     .. languages ..
     + C++
+}
+
+class estc-xml2csv << (P,violet) >> {
+    .. repository ..
+    COMHIS/estc-xml2csv
+    .. languages ..
+    + python
+    .. authors ..
+    + Hege
+}
+
+class ESTC_precleaner << (P,violet) >> {
+    .. repository ..
+    COMHIS/estc-raw-csv-prepicker
+    .. filename ..
+    prefilter_main.py
+    .. languages ..
+    + python
+    .. authors ..
+    + Ville
 }
 
 class ESTC_master << (P,violet) >> {
@@ -230,8 +263,17 @@ author_analysis --> ESTC_actors_enriched
 ESTC_actors_enriched --> estc_author_analysis_data
 estc_author_analysis_data --> ESTC_actors_verified
 
+' raw data wrangling
 MARC_XML --> XML_parser
 XML_parser --> ESTC_data_raw
+
+
+MARC_XML --> estc-xml2csv
+estc-xml2csv --> ESTC_csv_raw
+
+ESTC_csv_raw --> ESTC_precleaner
+ESTC_precleaner --> ESTC_csv_raw_filtered
+
 
 ESTC_data_raw --> ESTC_master
 ESTC_master --> ESTC_cleaned_initial
