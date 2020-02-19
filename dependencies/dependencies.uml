@@ -280,7 +280,7 @@ ESTC_master --> ESTC_cleaned_initial
 ' Publishers
 ESTC_csv_raw_filtered --> unify_publishers
 note on link
-    260a
+    260b
     260f
 end note
 BBTI_data --> unify_publishers
