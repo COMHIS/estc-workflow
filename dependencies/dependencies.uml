@@ -184,9 +184,6 @@ class unify_publishers << (P,violet) >> {
     + Python 3.6.3
     .. authors ..
     + Ville
-    .. MARC fields input ..
-    + 260b
-    + 260f
 }
 
 class unify_physicaldimension << (P,violet) >> {
@@ -281,7 +278,7 @@ ESTC_data_raw --> ESTC_master
 ESTC_master --> ESTC_cleaned_initial
 
 ' Publishers
-ESTC_csv_raw_filtered --> unify_publishers
+ESTC_csv_raw_filtered --> unify_publishers : 260b, 260f
 BBTI_data --> unify_publishers
 unify_publishers --> publishers_unified
 
