@@ -149,7 +149,7 @@ class XML_parser << (P,violet) >> {
     + C++
 }
 
-class estc-xml2csv << (P,violet) >> {
+class estc_xml2csv << (P,violet) >> {
     .. repository ..
     COMHIS/estc-xml2csv
     .. languages ..
@@ -267,13 +267,11 @@ estc_author_analysis_data --> ESTC_actors_verified
 MARC_XML --> XML_parser
 XML_parser --> ESTC_data_raw
 
-
-MARC_XML --> estc-xml2csv
-estc-xml2csv --> ESTC_csv_raw
+MARC_XML --> estc_xml2csv
+estc_xml2csv --> ESTC_csv_raw
 
 ESTC_csv_raw --> ESTC_precleaner
 ESTC_precleaner --> ESTC_csv_raw_filtered
-
 
 ESTC_data_raw --> ESTC_master
 ESTC_master --> ESTC_cleaned_initial
