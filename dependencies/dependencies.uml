@@ -182,7 +182,8 @@ class unify_publishers << (P,violet) >> {
     .. languages ..
     + R 3.4.3
     + Python 3.6.3
-
+    .. authors ..
+    + Ville
 }
 
 class unify_physicaldimension << (P,violet) >> {
@@ -275,9 +276,9 @@ ESTC_precleaner --> ESTC_csv_raw_filtered
 
 ESTC_data_raw --> ESTC_master
 ESTC_master --> ESTC_cleaned_initial
-ESTC_cleaned_initial --> unify_publishers
 
 ' Publishers
+ESTC_csv_raw_filtered --> unify_publishers
 BBTI_data --> unify_publishers
 unify_publishers --> publishers_unified
 
