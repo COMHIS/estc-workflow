@@ -278,7 +278,11 @@ ESTC_data_raw --> ESTC_master
 ESTC_master --> ESTC_cleaned_initial
 
 ' Publishers
-ESTC_csv_raw_filtered --> unify_publishers : 260b, 260f
+ESTC_csv_raw_filtered --> unify_publishers
+note on link
+    260a
+    260f
+end note
 BBTI_data --> unify_publishers
 unify_publishers --> publishers_unified
 
