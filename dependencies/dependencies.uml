@@ -5,6 +5,32 @@
 ' alt-m to build
 
 ' --- datasets ---
+
+' --- input data ---
+
+class BBTI_data << (D,yellow) >> {
+    .. location ..
+    http://bbti.bodleian.ox.ac.uk
+    .. dataType ..
+    + website
+}
+
+class VIAF_XML << (D,yellow) >> {
+    .. location ..
+    http://viaf.org/viaf/data/
+    .. dataType ..
+    + XML
+    .. dataSource ..
+    + viaf.org
+}
+
+class ECCO_data_raw << (D,yellow) >> {
+    .. location ..
+    COMHIS/ecco-data-private/originals
+    .. dataType ..
+    + json
+}
+
 class MARC_XML << (D,yellow) >> {
     .. location ..
     COMHIS/estc-data-originals/estc-xml-raw
@@ -48,6 +74,8 @@ class ESTC_cleaned_initial << (D,yellow) >> {
     + estc_id
 }
 
+' --- unified dataset
+
 class publishers_unified << (D,yellow) >> {
     .. location ..
     COMHIS/estc-data-unified/estc-publishers
@@ -65,7 +93,6 @@ class physicaldimensions_unified << (D,yellow) >> {
     + csv
     .. languages ..
     + R 3.5.1
-    
 }
 
 class language_unified << (D,yellow) >> {
@@ -75,29 +102,13 @@ class language_unified << (D,yellow) >> {
     + csv
     .. languages ..
     + R 3.5.1
-    
 }
 
-class physicaldimensions_summaries << (A,green) >> {
+class geoinformation_unified << (D,yellow) >> {
     .. location ..
-    COMHIS/estc-physicaldimension
+    COMHIS/estc-data-unified/estc-geoinformation
     .. dataType ..
-    + markdown
-    + csv    
-    .. languages ..
-    + R 3.5.1
-    
-}
-
-class actor_summaries << (A,green) >> {
-    .. location ..
-    COMHIS/author_analysis
-    .. dataType ..
-    + markdown
-    + csv    
-    .. languages ..
-    + R 3.5.1
-    
+    + csv
 }
 
 class physical_extent_unified << (D,yellow) >> {
@@ -118,27 +129,26 @@ class ESTC_actor_data_unified << (D,yellow) >> {
     + csv
 }
 
-class BBTI_data << (D,yellow) >> {
+' --- analysis datasets
+
+class physicaldimensions_summaries << (A,green) >> {
     .. location ..
-    http://bbti.bodleian.ox.ac.uk
+    COMHIS/estc-physicaldimension
     .. dataType ..
-    + website
+    + markdown
+    + csv    
+    .. languages ..
+    + R 3.5.1
 }
 
-class VIAF_XML << (D,yellow) >> {
+class actor_summaries << (A,green) >> {
     .. location ..
-    http://viaf.org/viaf/data/
+    COMHIS/author_analysis
     .. dataType ..
-    + XML
-    .. dataSource ..
-    + viaf.org
-}
-
-class ECCO_data_raw << (D,yellow) >> {
-    .. location ..
-    COMHIS/ecco-data-private/originals
-    .. dataType ..
-    + json
+    + markdown
+    + csv    
+    .. languages ..
+    + R 3.5.1
 }
 
 '  --- data processing scripts ---
@@ -164,7 +174,7 @@ class ESTC_precleaner << (P,violet) >> {
     .. filename ..
     prefilter_main.py
     .. languages ..
-    + python
+    + Python 3
     .. authors ..
     + Ville
 }
@@ -181,7 +191,7 @@ class unify_publishers << (P,violet) >> {
     COMHIS/unify_publishers
     .. languages ..
     + R 3.4.3
-    + Python 3.6.3
+    + Python 3
     .. authors ..
     + Ville
 }
@@ -200,7 +210,6 @@ class unify_physicalextent << (P,violet) >> {
     + R 3.5.1
 }
 
-
 class unify_language << (P,violet) >> {
     .. repository ..
     COMHIS/estc-language
@@ -208,6 +217,28 @@ class unify_language << (P,violet) >> {
     + R 3.5.1
 }
 
+' Iiro's geoinformation stuff
+
+class metadata_geoinformation_enrichment << (P,violet) >> {
+    .. repository ..
+    MAYBE THIS. Dunno, Iiro?
+    COMHIS/Metadata-geoinformation-enrichment
+    .. languages ..
+    + R 3.5.1
+    .. authors ..
+    + Iiro
+}
+
+' Ville's unification script for above
+
+class estc_data_wrangler << (P,violet) >> {
+    .. repository ..
+    COMHIS/estc-data-wrangler
+    .. languages ..
+    + Python 3
+    .. authors ..
+    + Ville
+}
 
 ' --- analysis scripts ---
 class ESTC_overview_analysis << (A,lightgreen) >> {
@@ -277,6 +308,19 @@ ESTC_precleaner --> ESTC_csv_raw_filtered
 ESTC_data_raw --> ESTC_master
 ESTC_master --> ESTC_cleaned_initial
 
+' Geoinformation
+ESTC_csv_raw --> metadata_geoinformation_enrichment
+note on link
+    OBS! This connection might not be correct
+    Check with Iiro.
+    752a
+    752b
+    752d
+end note
+metadata_geoinformation_enrichment --> geoinformation_unified
+geoinformation_unified --> estc_data_wrangler
+estc_data_wrangler --> geoinformation_unified
+
 ' Publishers
 ESTC_csv_raw_filtered --> unify_publishers
 note on link
@@ -295,7 +339,6 @@ unify_physicaldimension --> physicaldimensions_unified
 ESTC_data_raw --> unify_language
 unify_language --> language_summaries
 unify_language --> language_unified
-
 
 ' Physical extent
 ESTC_data_raw --> unify_physicalextent
