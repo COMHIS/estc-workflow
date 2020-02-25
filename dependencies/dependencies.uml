@@ -4,7 +4,7 @@
 ' below code is PlantUML -standard (http://plantuml.com/)
 ' alt-m to build
 
-' --- datasets ---
+' --- DATASETS ---
 
 ' --- input data ---
 
@@ -54,13 +54,6 @@ class ESTC_csv_raw_filtered << (D,yellow) >> {
     COMHIS/estc-data-verified/estc-csv-raw-filtered
     .. filename ..
     estc_raw_sane.csv
-    .. dataType ..
-    + csv
-}
-
-class ESTC_data_raw << (D,yellow) >> {
-    .. location ..
-    COMHIS/estc-data-verified/estc-csv-raw
     .. dataType ..
     + csv
 }
@@ -151,13 +144,23 @@ class actor_summaries << (A,green) >> {
     + R 3.5.1
 }
 
-'  --- data processing scripts ---
+' --- Legacy ---
+
 class XML_parser << (P,violet) >> {
     .. repository ..
     COMHIS/MARCdata
     .. languages ..
     + C++
 }
+
+class ESTC_data_legacy << (D,yellow) >> {
+    .. repository ..
+    COMHIS/estc-data-legacy
+    .. dataType ..
+    + csv
+}
+
+' --- data processing scripts ---
 
 class estc_xml2csv << (P,violet) >> {
     .. repository ..
@@ -201,6 +204,8 @@ class unify_physicaldimension << (P,violet) >> {
     COMHIS/estc-physicaldimension
     .. languages ..
     + R 3.5.1
+    .. authors ..
+    + Leo
 }
 
 class unify_physicalextent << (P,violet) >> {
@@ -208,6 +213,8 @@ class unify_physicalextent << (P,violet) >> {
     COMHIS/estc-physical-extent
     .. languages ..
     + R 3.5.1
+    .. authors ..
+    + Leo
 }
 
 class unify_language << (P,violet) >> {
@@ -215,6 +222,8 @@ class unify_language << (P,violet) >> {
     COMHIS/estc-language
     .. languages ..
     + R 3.5.1
+    .. authors ..
+    + Leo
 }
 
 ' Iiro's geoinformation stuff
@@ -295,17 +304,16 @@ author_analysis --> ESTC_actors_enriched
 ESTC_actors_enriched --> estc_author_analysis_data
 estc_author_analysis_data --> ESTC_actors_verified
 
-' raw data wrangling
-MARC_XML --> XML_parser
-XML_parser --> ESTC_data_raw
-
+' raw data processing
 MARC_XML --> estc_xml2csv
 estc_xml2csv --> ESTC_csv_raw
-
 ESTC_csv_raw --> ESTC_precleaner
 ESTC_precleaner --> ESTC_csv_raw_filtered
 
-ESTC_data_raw --> ESTC_master
+' Old ESTC flow
+MARC_XML --> XML_parser
+XML_parser --> ESTC_data_legacy
+ESTC_data_legacy --> ESTC_master
 ESTC_master --> ESTC_cleaned_initial
 
 ' Geoinformation
@@ -331,17 +339,17 @@ BBTI_data --> unify_publishers
 unify_publishers --> publishers_unified
 
 ' Physical dimension
-ESTC_data_raw --> unify_physicaldimension
+ESTC_csv_raw_filtered --> unify_physicaldimension
 unify_physicaldimension --> physicaldimensions_summaries
 unify_physicaldimension --> physicaldimensions_unified
 
 ' Language
-ESTC_data_raw --> unify_language
+ESTC_csv_raw_filtered --> unify_language
 unify_language --> language_summaries
 unify_language --> language_unified
 
 ' Physical extent
-ESTC_data_raw --> unify_physicalextent
+ESTC_csv_raw_filtered --> unify_physicalextent
 ECCO_data_raw --> unify_physicalextent
 unify_physicalextent --> physical_extent_unified
 
