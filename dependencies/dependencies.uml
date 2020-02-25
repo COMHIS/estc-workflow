@@ -104,6 +104,13 @@ class geoinformation_unified << (D,yellow) >> {
     + csv
 }
 
+class geoinformation_unified_final << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-unified/estc-geoinformation
+    .. dataType ..
+    + csv
+}
+
 class physical_extent_unified << (D,yellow) >> {
     .. location ..
     COMHIS/estc-data-unified/estc-physical-extent
@@ -327,7 +334,7 @@ note on link
 end note
 metadata_geoinformation_enrichment --> geoinformation_unified
 geoinformation_unified --> estc_data_wrangler
-estc_data_wrangler --> geoinformation_unified
+estc_data_wrangler --> geoinformation_unified_final
 
 ' Publishers
 ESTC_csv_raw_filtered --> unify_publishers
