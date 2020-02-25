@@ -296,7 +296,7 @@ class ESTC_actors_verified << (D,yellow) >> {
 
 ' Authors (and other actors)
 VIAF_XML --> unify_actors
-MARC_XML --> unify_actors
+ESTC_csv_raw_filtered --> unify_actors
 unify_actors --> ESTC_actor_data_unified
 ESTC_actor_data_unified --> actor_summaries
 ESTC_actor_data_unified --> author_analysis
