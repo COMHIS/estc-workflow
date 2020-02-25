@@ -147,14 +147,14 @@ class actor_summaries << (A,green) >> {
 ' --- Legacy ---
 
 class XML_parser << (P,violet) >> {
-    .. repository ..
+    .. location ..
     COMHIS/MARCdata
     .. languages ..
     + C++
 }
 
 class ESTC_data_legacy << (D,yellow) >> {
-    .. repository ..
+    .. location ..
     COMHIS/estc-data-legacy
     .. dataType ..
     + csv
@@ -163,7 +163,7 @@ class ESTC_data_legacy << (D,yellow) >> {
 ' --- data processing scripts ---
 
 class estc_xml2csv << (P,violet) >> {
-    .. repository ..
+    .. location ..
     COMHIS/estc-xml2csv
     .. languages ..
     + python
@@ -172,7 +172,7 @@ class estc_xml2csv << (P,violet) >> {
 }
 
 class ESTC_precleaner << (P,violet) >> {
-    .. repository ..
+    .. location ..
     COMHIS/estc-raw-csv-prepicker
     .. filename ..
     prefilter_main.py
@@ -183,14 +183,14 @@ class ESTC_precleaner << (P,violet) >> {
 }
 
 class ESTC_master << (P,violet) >> {
-    .. repository ..
+    .. location ..
     COMHIS/estc
     .. languages ..
     + R
 }
 
 class unify_publishers << (P,violet) >> {
-    .. repository ..
+    .. location ..
     COMHIS/unify_publishers
     .. languages ..
     + R 3.4.3
@@ -200,7 +200,7 @@ class unify_publishers << (P,violet) >> {
 }
 
 class unify_physicaldimension << (P,violet) >> {
-    .. repository ..
+    .. location ..
     COMHIS/estc-physicaldimension
     .. languages ..
     + R 3.5.1
@@ -209,7 +209,7 @@ class unify_physicaldimension << (P,violet) >> {
 }
 
 class unify_physicalextent << (P,violet) >> {
-    .. repository ..
+    .. location ..
     COMHIS/estc-physical-extent
     .. languages ..
     + R 3.5.1
@@ -218,7 +218,7 @@ class unify_physicalextent << (P,violet) >> {
 }
 
 class unify_language << (P,violet) >> {
-    .. repository ..
+    .. location ..
     COMHIS/estc-language
     .. languages ..
     + R 3.5.1
@@ -229,7 +229,7 @@ class unify_language << (P,violet) >> {
 ' Iiro's geoinformation stuff
 
 class metadata_geoinformation_enrichment << (P,violet) >> {
-    .. repository ..
+    .. location ..
     MAYBE THIS. Dunno, Iiro?
     COMHIS/Metadata-geoinformation-enrichment
     .. languages ..
@@ -241,7 +241,7 @@ class metadata_geoinformation_enrichment << (P,violet) >> {
 ' Ville's unification script for above
 
 class estc_data_wrangler << (P,violet) >> {
-    .. repository ..
+    .. location ..
     COMHIS/estc-data-wrangler
     .. languages ..
     + Python 3
@@ -251,7 +251,7 @@ class estc_data_wrangler << (P,violet) >> {
 
 ' --- analysis scripts ---
 class ESTC_overview_analysis << (A,lightgreen) >> {
-    .. repository ..
+    .. location ..
     COMHIS/estc-overview-analysis
     .. languages ..
     + R
@@ -260,22 +260,22 @@ class ESTC_overview_analysis << (A,lightgreen) >> {
 
 ' Mark's boxes
 class unify_actors << (P,violet) >> {
-    .. repository ..
-    + COMHIS/estc-viaf
+    .. location ..
+    COMHIS/estc-viaf
     .. languages ..
     + R
 }
 
 class author_analysis << (P,violet) >> {
-    .. repository ..
-    + COMHIS/author_analysis
+    .. location ..
+    COMHIS/author_analysis
     .. languages ..
     + R
 }
 
 class estc_author_analysis_data << (P,violet) >> {
-    .. repository ..
-    + COMHIS/estc_author_analysis_data
+    .. location ..
+    COMHIS/estc_author_analysis_data
     .. languages ..
     + R
 }
