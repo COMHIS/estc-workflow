@@ -23,3 +23,4 @@ P - data processing
 
 ### Notes
 <a name="note1">1</a> See ["How to integrate UML diagrams into GitLab or GitHub"](https://stackoverflow.com/questions/32203610/how-to-integrate-uml-diagrams-into-gitlab-or-github) on Stackoverflow for instructions on how to replicate this. Also see [this post](http://forum.plantuml.net/7163/githubs-aggressive-caching-prevent-diagrams-updated-markdown) on PlantUML forums on how to fix the caching issue.
+
