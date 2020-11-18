@@ -14,7 +14,8 @@ A dependency entry consists of:
 ## Overall workflow
 The UML chart is produced from PlantUML -standard file [dependencies.uml](./dependencies.uml). See [PlantUML](http://plantuml.com/) for details of the file format. The image is built automatically via PlantUML.com proxy server.<sup>[1](#note1)</sup>
 
-![PlantUML chart](http://www.plantuml.com/plantuml/proxy&src=https://raw.githubusercontent.com/COMHIS/estc-workflow/master/dependencies/dependencies.uml&fmt=svg)
+![PlantUML chart](http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/COMHIS/estc-workflow/master/dependencies/dependencies.uml&fmt=svg)
+?cache=no
 ```
 A - analysis
 D - data
