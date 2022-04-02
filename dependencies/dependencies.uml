@@ -4,82 +4,9 @@
 ' below code is PlantUML -standard (http://plantuml.com/)
 ' alt-m to build
 
-' --- datasets ---
-class MARC_XML << (D,yellow) >> {
-    .. location ..
-    COMHIS/estc-data-private/estc-xml-raw
-    .. dataType ..
-    + XML
-    .. dataSource ..
-    + British Library
-}
+' --- DATASETS ---
 
-class ESTC_data_raw << (D,yellow) >> {
-    .. location ..
-    COMHIS/estc-data-private/estc-csv-raw
-    .. dataType ..
-    + csv
-    + rds    
-}
-
-class ESTC_cleaned_initial << (D,yellow) >> {
-    .. location ..
-    COMHIS/estc-data-private/estc-cleaned-initial
-    .. dataType ..
-    + csv
-    .. IdFields ..
-    + estc_id
-}
-
-class publishers_unified << (D,yellow) >> {
-    .. location ..
-    COMHIS/estc-data-private/estc-publishers
-    .. dataType ..
-    + csv
-    .. IdFields ..
-    + estc_id
-    + actor_id
-}
-
-class physicaldimensions_unified << (D,yellow) >> {
-    .. location ..
-    COMHIS/estc-data-private/estc-physicaldimension
-    .. dataType ..
-    + csv
-    + rds
-    .. languages ..
-    + R 3.5.1
-    
-}
-
-class language_unified << (D,yellow) >> {
-    .. location ..
-    COMHIS/estc-data-private/estc-language
-    .. dataType ..
-    + csv
-    + rds
-    .. languages ..
-    + R 3.5.1    
-}
-
-class physical_extent_unified << (D,yellow) >> {
-    .. location ..
-    COMHIS/estc-data-private/estc-physical-extent
-    .. dataType ..
-    + csv
-    + rds
-    .. languages ..
-    + R 3.5.1
-    
-}
-
-class ESTC_actor_data_unified << (D,yellow) >> {
-    .. location ..
-    COMHIS/estc-data-private/estc-viaf
-    .. dataType ..
-    + csv
-}
-
+' --- input data ---
 
 class BBTI_data << (D,yellow) >> {
     .. location ..
@@ -104,57 +31,234 @@ class ECCO_data_raw << (D,yellow) >> {
     + json
 }
 
-'  --- data processing scripts ---
+class MARC_XML << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-originals/estc-xml-raw
+    .. filename ..
+    originals_MARC_estc.xml
+    .. dataType ..
+    + XML
+    .. dataSource ..
+    + British Library
+}
+
+class ESTC_csv_raw << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-originals/estc-csv-raw/
+    .. dataType ..
+    + csv
+}
+
+class ESTC_csv_raw_filtered << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-verified/estc-csv-raw-filtered
+    .. filename ..
+    estc_raw_sane.csv
+    .. dataType ..
+    + csv
+}
+
+class ESTC_cleaned_initial << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-unified/estc-cleaned-initial
+    .. dataType ..
+    + csv
+    .. IdFields ..
+    + estc_id
+}
+
+' --- unified dataset
+
+class publishers_unified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-unified/estc-publishers
+    .. dataType ..
+    + csv
+    .. IdFields ..
+    + estc_id
+    + actor_id
+}
+
+class physicaldimensions_unified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-unified/estc-physicaldimension
+    .. dataType ..
+    + csv
+    .. languages ..
+    + R 3.5.1
+}
+
+class language_unified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-unified/estc-language
+    .. dataType ..
+    + csv
+    .. languages ..
+    + R 3.5.1
+}
+
+class geoinformation_unified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-unified/estc-geoinformation
+    .. dataType ..
+    + csv
+}
+
+class geoinformation_unified_final << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-unified/estc-geoinformation
+    .. dataType ..
+    + csv
+}
+
+class physical_extent_unified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-unified/estc-physical-extent
+    .. dataType ..
+    + csv
+    + rds
+    .. languages ..
+    + R 3.5.1
+    
+}
+
+class ESTC_actor_data_unified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-unified/estc-viaf
+    .. dataType ..
+    + csv
+}
+
+' --- analysis datasets
+
+class physicaldimensions_summaries << (A,green) >> {
+    .. location ..
+    COMHIS/estc-physicaldimension
+    .. dataType ..
+    + markdown
+    + csv    
+    .. languages ..
+    + R 3.5.1
+}
+
+class actor_summaries << (A,green) >> {
+    .. location ..
+    COMHIS/author_analysis
+    .. dataType ..
+    + markdown
+    + csv    
+    .. languages ..
+    + R 3.5.1
+}
+
+' --- Legacy ---
+
 class XML_parser << (P,violet) >> {
-    .. repository ..
+    .. location ..
     COMHIS/MARCdata
     .. languages ..
     + C++
 }
 
+class ESTC_data_legacy << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-data-legacy
+    .. dataType ..
+    + csv
+}
+
+' --- data processing scripts ---
+
+class estc_xml2csv << (P,violet) >> {
+    .. location ..
+    COMHIS/estc-xml2csv
+    .. languages ..
+    + python
+    .. authors ..
+    + Hege
+}
+
+class ESTC_precleaner << (P,violet) >> {
+    .. location ..
+    COMHIS/estc-raw-csv-prepicker
+    .. filename ..
+    prefilter_main.py
+    .. languages ..
+    + Python 3
+    .. authors ..
+    + Ville
+}
+
 class ESTC_master << (P,violet) >> {
-    .. repository ..
+    .. location ..
     COMHIS/estc
     .. languages ..
     + R
 }
 
 class unify_publishers << (P,violet) >> {
-    .. repository ..
+    .. location ..
     COMHIS/unify_publishers
     .. languages ..
     + R 3.4.3
-    + Python 3.6.3
-
+    + Python 3
+    .. authors ..
+    + Ville
 }
 
-
 class unify_physicaldimension << (P,violet) >> {
-    .. repository ..
+    .. location ..
     COMHIS/estc-physicaldimension
     .. languages ..
     + R 3.5.1
+    .. authors ..
+    + Leo
 }
 
 class unify_physicalextent << (P,violet) >> {
-    .. repository ..
+    .. location ..
     COMHIS/estc-physical-extent
     .. languages ..
     + R 3.5.1
+    .. authors ..
+    + Leo
 }
 
-
-class unify_langugage << (P,violet) >> {
-    .. repository ..
+class unify_language << (P,violet) >> {
+    .. location ..
     COMHIS/estc-language
     .. languages ..
     + R 3.5.1
+    .. authors ..
+    + Leo
 }
 
+' Iiro's geoinformation stuff
+
+class metadata_geoinformation_enrichment << (P,violet) >> {
+    .. location ..
+    MAYBE THIS. Dunno, Iiro?
+    COMHIS/Metadata-geoinformation-enrichment
+    .. languages ..
+    + R 3.5.1
+    .. authors ..
+    + Iiro
+}
+
+' Ville's unification script for above
+
+class estc_data_wrangler << (P,violet) >> {
+    .. location ..
+    COMHIS/estc-data-wrangler
+    .. languages ..
+    + Python 3
+    .. authors ..
+    + Ville
+}
 
 ' --- analysis scripts ---
 class ESTC_overview_analysis << (A,lightgreen) >> {
-    .. repository ..
+    .. location ..
     COMHIS/estc-overview-analysis
     .. languages ..
     + R
@@ -163,38 +267,96 @@ class ESTC_overview_analysis << (A,lightgreen) >> {
 
 ' Mark's boxes
 class unify_actors << (P,violet) >> {
-    .. repository ..
-    + COMHIS/estc-viaf
+    .. location ..
+    COMHIS/estc-viaf
     .. languages ..
     + R
 }
 
+class author_analysis << (P,violet) >> {
+    .. location ..
+    COMHIS/author_analysis
+    .. languages ..
+    + R
+}
+
+class estc_author_analysis_data << (P,violet) >> {
+    .. location ..
+    COMHIS/estc_author_analysis_data
+    .. languages ..
+    + R
+}
+
+class ESTC_actors_enriched << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-author-analysis-data
+    .. dataType ..
+    + csv
+}
+
+class ESTC_actors_verified << (D,yellow) >> {
+    .. location ..
+    COMHIS/estc-author-analysis-data
+    .. dataType ..
+    + csv
+}
+
 ' Authors (and other actors)
 VIAF_XML --> unify_actors
-MARC_XML --> unify_actors
+ESTC_csv_raw_filtered --> unify_actors
 unify_actors --> ESTC_actor_data_unified
+ESTC_actor_data_unified --> actor_summaries
+ESTC_actor_data_unified --> author_analysis
+author_analysis --> ESTC_actors_enriched
+ESTC_actors_enriched --> estc_author_analysis_data
+estc_author_analysis_data --> ESTC_actors_verified
 
+' raw data processing
+MARC_XML --> estc_xml2csv
+estc_xml2csv --> ESTC_csv_raw
+ESTC_csv_raw --> ESTC_precleaner
+ESTC_precleaner --> ESTC_csv_raw_filtered
+
+' Old ESTC flow
 MARC_XML --> XML_parser
-XML_parser --> ESTC_data_raw
-
-ESTC_data_raw --> ESTC_master
+XML_parser --> ESTC_data_legacy
+ESTC_data_legacy --> ESTC_master
 ESTC_master --> ESTC_cleaned_initial
-ESTC_cleaned_initial --> unify_publishers
+
+' Geoinformation
+ESTC_csv_raw --> metadata_geoinformation_enrichment
+note on link
+    OBS! This connection might not be correct
+    Check with Iiro.
+    752a
+    752b
+    752d
+end note
+metadata_geoinformation_enrichment --> geoinformation_unified
+geoinformation_unified --> estc_data_wrangler
+estc_data_wrangler --> geoinformation_unified_final
 
 ' Publishers
+ESTC_csv_raw_filtered --> unify_publishers
+note on link
+    260b
+    260f
+end note
 BBTI_data --> unify_publishers
 unify_publishers --> publishers_unified
 
 ' Physical dimension
-ESTC_data_raw --> unify_physicaldimension
+ESTC_csv_raw_filtered --> unify_physicaldimension
+unify_physicaldimension --> physicaldimensions_summaries
 unify_physicaldimension --> physicaldimensions_unified
 
 ' Language
-ESTC_data_raw --> unify_language
+ESTC_csv_raw_filtered --> unify_language
+unify_language --> language_summaries
 unify_language --> language_unified
 
 ' Physical extent
-ESTC_data_raw --> unify_physicalextent
+ESTC_csv_raw_filtered --> unify_physicalextent
 ECCO_data_raw --> unify_physicalextent
 unify_physicalextent --> physical_extent_unified
 
